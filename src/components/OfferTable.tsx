@@ -1,23 +1,13 @@
 import Image from "next/image";
-import { MoreHorizontal } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import {
   Table,
   TableBody,
@@ -26,6 +16,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
+import WrapperMaxWidth from "./WrapperMaxWidth";
 
 type Props = {};
 
@@ -34,42 +26,42 @@ export default function OfferTable({}: Props) {
     {
       name: "Zmiana opon",
       type: "opony",
-      price: "500.00 zł",
+      price: "500 zł",
     },
     {
       name: "Wymiana oleju",
       type: "konserwacja",
-      price: "100.00 zł",
+      price: "100 zł",
     },
     {
       name: "Naprawa silnika",
       type: "naprawa",
-      price: "1000.00 zł",
+      price: "1000 zł",
     },
     {
       name: "Naprawa zawieszenia",
       type: "naprawa",
-      price: "500.00 zł",
+      price: "500 zł",
     },
     {
       name: "Wymiana tarcz hamulcowych",
       type: "konserwacja",
-      price: "200.00 zł",
+      price: "200 zł",
     },
     {
       name: "Wymiana klocków hamulcowych",
       type: "konserwacja",
-      price: "100.00 zł",
+      price: "100 zł",
     },
   ];
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Oferta</CardTitle>
-        <CardDescription>Sprawdź listę dostępnych usług.</CardDescription>
-      </CardHeader>
-      <CardContent>
+    <div>
+      <WrapperMaxWidth>
+        <div className="flex flex-col gap-2 mt-8 mb-4">
+          <h1 className="text-xl font-bold">Oferta</h1>
+          <p>Sprawdź listę dostępnych usług.</p>
+        </div>
         <Table>
           <TableHeader>
             <TableRow>
@@ -77,8 +69,8 @@ export default function OfferTable({}: Props) {
                 <span className="sr-only">Zdjęcie</span>
               </TableHead>
               <TableHead>Nazwa</TableHead>
-              <TableHead>Typ</TableHead>
-              <TableHead className="hidden md:table-cell">Cena</TableHead>
+              <TableHead className="hidden md:table-cell">Typ</TableHead>
+              <TableHead>Cena</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -94,27 +86,24 @@ export default function OfferTable({}: Props) {
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center space-x-4">
-                    <div>
-                      <p className="font-bold">{offer.name}</p>
-                    </div>
+                    <Link href="">
+                      <div>
+                        <p className="font-bold">{offer.name}</p>
+                      </div>
+                    </Link>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden md:table-cell">
                   <p>{offer.type}</p>
                 </TableCell>
-                <TableCell className="hidden md:table-cell">
+                <TableCell>
                   <p>{offer.price}</p>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-      </CardContent>
-      <CardFooter>
-        <div className="text-xs text-muted-foreground">
-          Showing <strong>1-10</strong> of <strong>32</strong> products
-        </div>
-      </CardFooter>
-    </Card>
+      </WrapperMaxWidth>
+    </div>
   );
 }
