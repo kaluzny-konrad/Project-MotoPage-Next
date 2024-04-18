@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "text-slate-800")}>
+      <body className={cn(inter.className, "text-primary")}>
         <Nav />
         {children}
         <Footer />
