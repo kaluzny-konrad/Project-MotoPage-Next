@@ -6,10 +6,7 @@ import Steps from "@/components/Steps";
 export default function Home() {
   return (
     <main className="flex flex-col w-full min-h-screen">
-      <Header />
-      <Benefits />
-      <Steps />
-      <CheckOffer />
+      Kontakt
     </main>
   );
 }
