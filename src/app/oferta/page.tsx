@@ -1,9 +1,9 @@
-import OfferTable from "@/components/OfferTable";
+import ServiceTable from "@/components/ServiceTable";
 
-export default function Home() {
+export default function ServicePage() {
   return (
     <main className="flex flex-col w-full min-h-screen">
-      <OfferTable />
+      <ServiceTable />
     </main>
   );
 }

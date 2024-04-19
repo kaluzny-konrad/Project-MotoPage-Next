@@ -2,7 +2,7 @@ import ContactForm from "@/components/ContactForm";
 import WrapperMaxWidth from "@/components/WrapperMaxWidth";
 import { MailIcon } from "lucide-react";
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <main className="flex flex-col w-full min-h-screen">
       <WrapperMaxWidth>

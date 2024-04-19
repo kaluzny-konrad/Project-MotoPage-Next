@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import LayoutProviders from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, "text-primary")}>
-        <Nav />
-        {children}
-        <Footer />
+        <LayoutProviders>
+          <Nav />
+          {children}
+          <Footer />
+        </LayoutProviders>
       </body>
     </html>
   );

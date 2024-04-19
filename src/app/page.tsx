@@ -1,6 +1,7 @@
 import Benefits from "@/components/Benefits";
 import CheckOffer from "@/components/CheckOffer";
 import Header from "@/components/Header";
+import ServiceShortcut from "@/components/ServiceShortcut";
 import Steps from "@/components/Steps";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Benefits />
       <Steps />
+      <ServiceShortcut />
       <CheckOffer />
     </main>
   );

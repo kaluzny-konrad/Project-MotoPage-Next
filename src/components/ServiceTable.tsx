@@ -21,7 +21,7 @@ import WrapperMaxWidth from "./WrapperMaxWidth";
 
 type Props = {};
 
-export default function OfferTable({}: Props) {
+export default function ServiceTable({}: Props) {
   const offers = [
     {
       name: "Zmiana opon",

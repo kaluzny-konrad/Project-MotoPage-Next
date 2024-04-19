@@ -8,6 +8,10 @@ export default function Nav({}: Props) {
   const pages = [
     { name: "Start", href: "/" },
     { name: "Oferta", href: "/oferta" },
+    {
+      name: "Porady",
+      href: "/porady",
+    },
     { name: "Kontakt", href: "/kontakt" },
   ];
 
