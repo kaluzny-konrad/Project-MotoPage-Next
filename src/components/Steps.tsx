@@ -20,14 +20,14 @@ export default function Steps({}: Props) {
   ];
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-primary">
       <div className="container py-20 mx-auto">
-        <h2 className="mb-10 text-4xl font-bold text-center">Jak to działa?</h2>
+        <h2 className="mb-10 text-4xl font-bold text-center text-secondary">Jak to działa?</h2>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {steps.map((step) => (
             <div
               key={step.title}
-              className="flex flex-col items-center gap-4 p-8 text-white rounded-2xl bg-primary"
+              className="flex flex-col items-center gap-4 p-8 text-primary rounded-2xl bg-secondary"
             >
               <h3 className="text-lg font-bold lg:text-xl">{step.title}</h3>
               <p className="">{step.description}</p>

@@ -1,6 +1,17 @@
-import { MenuIcon } from "lucide-react";
-import Link from "next/link";
-import WrapperMaxWidth from "./WrapperMaxWidth";
+"use client";
+
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@nextui-org/navbar";
+import { Link } from "@nextui-org/react";
+import { useState } from "react";
+import DarkModeSwitcher from "./DarkModeSwitcher";
 
 type Props = {};
 
@@ -15,33 +26,48 @@ export default function Nav({}: Props) {
     { name: "Kontakt", href: "/kontakt" },
   ];
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="sticky inset-x-0 top-0 z-50 h-16 bg-white">
-      <header className="relative bg-white">
-        <WrapperMaxWidth>
-          <div className="flex justify-between p-4">
-            <div className="lg:hidden">
-              <MenuIcon className="h-8" />
-            </div>
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
+      <NavbarContent>
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden"
+        />
+        <NavbarBrand>
+          <Link href="/">
+            <p className="font-bold">LOGO</p>
+          </Link>
+        </NavbarBrand>
+      </NavbarContent>
 
-            <Link href="/" className="flex items-center">
-              <p className="font-bold">LOGO</p>
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        {pages.map((page) => (
+          <NavbarItem key={page.name}>
+            <Link href={page.href} color="foreground">
+              {page.name}
             </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
 
-            <div className="hidden lg:block">
-              <nav>
-                {pages.map((page) => (
-                  <Link key={page.name} href={page.href} className="p-4">
-                    {page.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
+      <NavbarContent className="hidden sm:flex gap-4" justify="end" />
 
-            <div></div>
-          </div>
-        </WrapperMaxWidth>
-      </header>
-    </div>
+      <NavbarMenu>
+        {pages.map((page, index) => (
+          <NavbarMenuItem key={`${page}-${index}`}>
+            <Link
+              color={"primary"}
+              className="w-full"
+              href={page.href}
+              size="lg"
+            >
+              {page.name}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 }

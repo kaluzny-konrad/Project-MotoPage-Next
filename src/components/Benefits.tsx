@@ -35,7 +35,7 @@ export default function Benefits({}: Props) {
               {benefits.map((benefit) => (
                 <div
                   key={benefit.title}
-                  className="flex flex-col items-center gap-4 p-8 text-white rounded-2xl bg-primary"
+                  className="flex flex-col items-center gap-4 p-8 text-primary rounded-2xl bg-secondary"
                 >
                   <h3 className="text-lg font-bold lg:text-xl">
                     {benefit.title}
